@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { DogListingComponent } from './dog-listing/dog-listing.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { DogListingComponent } from './dog-listing/dog-listing.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

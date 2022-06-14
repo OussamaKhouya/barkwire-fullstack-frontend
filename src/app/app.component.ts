@@ -18,4 +18,11 @@ export class AppComponent implements OnInit {
       this.dogs = response.dogs;
     });
   }
+
+  addDog(newDog: Dog) {
+   this.dogService.addDog(newDog).subscribe(response => {
+     this.dogs = [response.dog , ...this.dogs]
+   })
+   console.log(newDog)
+  }
 }

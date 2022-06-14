@@ -7,6 +7,9 @@ import {environment} from "../environments/environment";
 type DogsResponse = {
   dogs: Dog[];
 }
+type DogResponse = {
+  dog: Dog;
+}
 
 const dogsEndpoint = `${environment.baseApiUrl}/dogs`;
 
@@ -15,26 +18,7 @@ const dogsEndpoint = `${environment.baseApiUrl}/dogs`;
 })
 export class DogService {
 
-  dogs : Dog[] = [
-    {
-      name: "Bixby",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Dog_Breeds.jpg/800px-Dog_Breeds.jpg",
-      description: "Just the best woff!"
 
-    },
-    {
-      name: "Bixby",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Dog_Breeds.jpg/800px-Dog_Breeds.jpg",
-      description: "Just the best woff!"
-
-    },
-    {
-      name: "Bixby",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Dog_Breeds.jpg/800px-Dog_Breeds.jpg",
-      description: "Just the best woff!"
-
-    }
-   ]
 
    constructor(private http: HttpClient) {}
 
@@ -42,5 +26,8 @@ export class DogService {
     return this.http.get<DogsResponse>(dogsEndpoint);
    }
 
+   addDog(dog: Dog) {
+    return this.http.post<DogResponse>(`${environment.baseApiUrl}/dogs`, dog)
+   }
 
 }
