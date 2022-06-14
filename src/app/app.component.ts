@@ -14,8 +14,8 @@ export class AppComponent implements OnInit {
 
  }
   ngOnInit(): void {
-    this.dogService.fetchDogs().subscribe( dogs => {
-      this.dogs = dogs;
+    this.dogService.fetchDogs().subscribe( response => {
+      this.dogs = response.dogs;
     });
   }
 }
